@@ -44,4 +44,5 @@ let SpellResponse spell =
   // Discriminated unions: Closed to adding new types -- Open to adding new operations
   // Inheritance/Interfaces: Open to adding new types -- Closed to adding new operations
 
-  // DUs give you compile time guarantee that cases are handled (Treat warnings as errors!)
+// DUs give you compile time guarantee that cases are handled (Treat warnings as errors!)
+// Along with record types, they let you concisely express all the types in your domain.
