@@ -14,11 +14,32 @@ module C =
 
 C.func 0
 
-// Even within a module
+// Functions must be defined before use, even within a module,  because functions are values.
 
 module D =
-    let f1 x = f2 x
+    let value1 = value2 // error: value2 is not defined. Seems reasonable...
+    let value2 = 1
 
-    let f2 x = 1
+    let function1 x = function2 x // error: function2 is not defined
+    let function2 x = 1
 
-// Because functions are normal values
+// F# restricts cyclic dependencies at
+    // The project level (like C#)
+    // The module level
+    // The value level
+
+// This allows for more (enforced) layering.
+
+// The check can be circumvented for mutally recursive functions, using `rec` and `and`:
+
+module E =
+    let rec function1 x =
+        function2 x
+
+    and function2 x =
+        if false then function1 x else 1
+
+// This enforces mutually recursive functions are defined next to each other.
+
+// Because of these restrictions, F# files in a project must be specified in a valid order,
+// so modules are defined before use. A clean dependency graph is enforced.
