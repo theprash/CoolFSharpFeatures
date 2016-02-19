@@ -19,10 +19,10 @@ type MyCoolClass() = class end
 (Some (MyCoolClass()) : Option<MyCoolClass>)
 
 // It's built into F# but it can easily be defined. It's just a discriminated union.
-
-type Option<'a> =
-    | Some of 'a
-    | None
+// 
+//  type Option<'a> =
+//      | Some of 'a
+//      | None
 
 // Pattern match to handle each case.
 
@@ -36,3 +36,10 @@ isAnyoneThere None
 
 // If you have an optional value, check for None *once*.
 // Then pass it around as a guaranteed non-null and don't check it anymore.
+
+// There are functions to make it easier to work with options.
+// Option.map transforms an option if it has a value.
+
+Some 1 |> Option.map ((+) 1)
+
+None   |> Option.map ((+) 1)
