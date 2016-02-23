@@ -31,7 +31,7 @@ match [ 1; 2; 3 ] with
 
 type MyCoolRecord = { name: string; age: int }
 
-match { name = "Gandalf"; age = 200 } with
+match { name = "Gandalf"; age = 1000 } with
 | { name = "Gandalf"; age = a } -> string a
 | _ -> "No matches"
 
@@ -42,7 +42,7 @@ type DU =
     | Case2 of string
 
 match Case2 ":D" with
-| Case1 -> ":("
+| Case1   -> ":("
 | Case2 x -> x
 
 // Match on tuples
@@ -58,12 +58,12 @@ match 5, "hi", [1; 2; 3] with // a 3-tuple
 // for the multiples of five print “Buzz”,
 // and for numbers which are multiples of both three and five print “FizzBuzz”.
 
-let fb input =
-    let dividesBy x = (input % x) = 0
+let fizzBuzz input =
+    let factor x = (input % x) = 0
 
-    match dividesBy 3, dividesBy 5 with
+    match factor 3, factor 5 with
     | false, false -> string input
-    | d3, d5 -> (if d3 then "Fizz" else "") +
-                (if d5 then "Buzz" else "")
+    | f3, f5 -> (if f3 then "Fizz" else "") +
+                (if f5 then "Buzz" else "")
 
-List.map fb [1..100]
+List.map fizzBuzz [1..100]
