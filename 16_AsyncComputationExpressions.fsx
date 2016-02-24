@@ -1,7 +1,6 @@
 // Async Workflows
 // ---------------
 
-
 // A simple example: waiting for random timers.
 
 let rnd = System.Random()
