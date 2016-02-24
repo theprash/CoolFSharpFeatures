@@ -53,15 +53,11 @@ list {
     yield! [3; 4]
 }
 
-// We have a new way of multiplying out multiple lists
-
-let myList = [1; 2]
-
-// We defined `Bind`, so we can use `let!` to multiple out lists (as opposed to `for` and `do` above)
+// We defined `Bind`, so we can use `let!` to multiply out lists (as opposed to `for` and `do` above)
 
 list {
-    let! a = myList
-    let! b = myList
+    let! a = [1; 2]
+    let! b = [1; 2]
 
     yield a, b
 }
