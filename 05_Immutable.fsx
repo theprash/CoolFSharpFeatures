@@ -1,28 +1,41 @@
 // Immutable by default
+// --------------------
 
-// Usually use constants
+// Constants are normal
 let a = 1
 let a = 2 // compile error
 
-// Explicitly mutable
+// You can make things mutable explicitly
 let mutable b = 1
 b <- 2
 b
 
+
 // Efficient immutable data structures
+// -----------------------------------
 
-[ 1; 2; 3 ] // List
+// List
+[ 1; 2; 3 ]
 
-set [ 1; 2; 3 ] // Set
+// Set
+set [ 1; 2; 3 ]
 
+// Map
 Map.ofList [ "a", 1
              "b", 2
-             "c", 3 ] // Map
+             "c", 3 ]
 
-type MyCoolRecord = {coolString : string; coolInt : int}
-{coolString = "hi!"; coolInt = 7} // Record
+// Record
 
-(12, "hi") // Tuple
+type MyCoolRecord = { coolString : string
+                      coolInt : int }
 
-// Helps avoid mutable refs by tupling `out` parameters
-let (quotient, remainder) = System.Math.DivRem(10, 3)
+{ coolString = "hi!"
+  coolInt = 7 }
+
+// Tuple
+(12, "hi")
+
+// Tuples help avoid mutable refs by tupling `out` parameters
+
+let (quotient, remainder) = System.Math.DivRem(10, 3) // DivRem is automatically "tuple-ised"
