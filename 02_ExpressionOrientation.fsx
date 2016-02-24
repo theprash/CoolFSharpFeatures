@@ -1,4 +1,4 @@
-// Everything is an expression. So no `return` needed
+// Everything is an expression. So no `return` needed.
 
 let myCoolFunction myCoolParam =
     myCoolParam * 2
@@ -11,7 +11,9 @@ let myCoolVariable =
     else
         ":("
 
-floor (if 1 < 2 then 2.2 else if 3 < 4 then 3.3 else 4.4)
+floor (if 1 < 2 then 2.2
+       else if 3 < 4 then 3.3
+       else 4.4)
 
 // The same with case matching.
 
@@ -19,4 +21,4 @@ floor (if 1 < 2 then 2.2 else if 3 < 4 then 3.3 else 4.4)
     match [1; 2; 3] with
     | [] -> 0
     | [a; b; c] -> 3
-    | _ -> 0)
+    | _ -> 0 )
