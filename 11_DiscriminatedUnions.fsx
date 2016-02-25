@@ -31,7 +31,7 @@ type Person =
     Developer Junior
     Wizard (Lead, [Fireball; Freeze])
 ]
-|> List.sortBy (function Developer lev | BA lev | Wizard (lev, _) -> lev)
+|> List.sortBy (function Developer level | BA level | Wizard (level, _) -> level)
 
 // Exhaustive matching - warning/error when not all cases matched
 
