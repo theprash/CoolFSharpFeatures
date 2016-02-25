@@ -6,9 +6,8 @@ match [ 1; 2; 3 ] with
   // a and b are new variables being bound here to any value in that list position.
 | _ -> "No matches"
 
-// Pattern matching is a way to take some input, and pick a path of execution that depends on its
-// shape or its value or parts of its shape or parts of its value, while also binding parts of its
-// value to names for further processing.
+// Pattern matching is a way to take some data, and pick a path of execution that depends on parts
+// of its shape and/or value, while also binding parts of its value to names for further processing.
 
 // Match on empty list or the head of a list
 
