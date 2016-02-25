@@ -38,12 +38,12 @@ seq { yield! [1; 2]
 // A custom simple list builder, to demonstrate the generality of computation expressions
 
 type ListBuilder() =
-    member __.Yield(a) = [a]  // Used for `yield`
-    member __.YieldFrom(xs) = xs  // Used for `yield!`
-    member __.Combine(a, b) = a @ b  // Used to combine adjacent yields
-    member __.Delay(f) = f ()
-    member __.Bind(xs, f) = List.collect f xs  // Used for `let!`
-    member __.Zero() = []  // Used if nothing is yielded
+    member this.Yield(a) = [a]  // Used for `yield`
+    member this.YieldFrom(xs) = xs  // Used for `yield!`
+    member this.Combine(a, b) = a @ b  // Used to combine adjacent yields
+    member this.Delay(f) = f ()
+    member this.Bind(xs, f) = List.collect f xs  // Used for `let!`
+    member this.Zero() = []  // Used if nothing is yielded
 
 let list = ListBuilder()
 
