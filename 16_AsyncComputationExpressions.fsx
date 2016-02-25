@@ -47,12 +47,12 @@ urlList
 // Make an option builder
 
 type OptionBuilder() =
-    member __.Bind(x : Option<'a>, f : 'a -> Option<'b>) =
+    member this.Bind(x : Option<'a>, f : 'a -> Option<'b>) =
         match x with
         | Some y -> f y
         | None -> None
 
-    member __.Return(x : 'a) =
+    member this.Return(x : 'a) =
         Some x
 
 let option = new OptionBuilder()
