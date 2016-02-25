@@ -63,7 +63,7 @@ let (/?) a b = if b = 0 then None else Some (a / b)
 
 // Here's how to use the builder. This is a computation expression:
 
-option { // `option` now acts like a keyword, like `async`
+option {             // `option` now acts like a keyword, like `async`
     let! a = 20 /? 0 // Expression returns an Option<int> but `let!` allows you to treat it as int
     let! b = a /? 2  // This works even though a is None!
     return b
